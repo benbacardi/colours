@@ -28,9 +28,19 @@ class CLIColours(object):
         'NORMAL': '\033[0m',
     }
 
+    def __init__(self):
+        self._stream = None
+        return super(CLIColours, self).__init__()
+
+    def set_stream(self, stream):
+        self._stream = stream
+
     def __getattr__(self, attr):
         if attr.upper() in CLIColours.COLOURS:
-            def highlight(word):
+            def highlight(word, stream=None):
+                output_stream = stream or self._stream
+                if output_stream and not output_stream.isatty():
+                    return word
                 return '{}{}{}'.format(CLIColours.COLOURS[attr.upper()], word, CLIColours.COLOURS['NORMAL'])
             return highlight
         raise AttributeError('No colour %r defined.' % attr)

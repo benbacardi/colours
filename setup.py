@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
   name = 'colours',
   packages = ['colours'],
-  version = '0.2',
+  version = '0.3',
   description = 'Easy CLI colours for Python applications',
   author = 'Ben Cardy',
   author_email = 'benbacardi@gmail.com',
