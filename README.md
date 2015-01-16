@@ -3,6 +3,15 @@ colours
 
 Easy CLI colours for Python applications.
 
+Installation
+------------
+
+Install from PyPI:
+
+```python
+pip install colours
+```
+
 Usage
 -----
 
